@@ -1,0 +1,325 @@
+{
+  "info": {
+    "name": "Organization Onboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Organization - AUTO Success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"AUTO\",\n  \"organizationLogo\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - MANUAL Duplicate Code (409)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"MANUAL\",\n  \"organizationCode\": \"ACME-CORP\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - Validation Error (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"\",\n  \"industry\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - AUTO Same Name (gets ACME-CORP-2)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"AUTO\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - MANUAL Success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"MANUAL\",\n  \"organizationCode\": \"acme-india\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - MANUAL Missing Code (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"MANUAL\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - MANUAL Invalid Format (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"MANUAL\",\n  \"organizationCode\": \"ACME CORP!!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Organization - Invalid codeMode (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organizationName\": \"Acme Corp\",\n  \"organizationType\": \"Private Limited\",\n  \"industry\": \"Information Technology\",\n  \"companySize\": \"51-200\",\n  \"country\": \"India\",\n  \"stateProvince\": \"Karnataka\",\n  \"city\": \"Bengaluru\",\n  \"timeZone\": \"IST\",\n  \"codeMode\": \"RANDOM\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Organization By Code - Success",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations/ACME-CORP",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations",
+            "ACME-CORP"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Organization By Code - Not Found (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations/NOT-EXIST",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations",
+            "NOT-EXIST"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Organizations",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Preview Auto Code",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations/code/generate?organizationName=Acme Corp",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations",
+            "code",
+            "generate"
+          ],
+          "query": [
+            {
+              "key": "organizationName",
+              "value": "Acme Corp"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check Manual Code Availability",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/organizations/code/check?organizationCode=ACME-CORP",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "organizations",
+            "code",
+            "check"
+          ],
+          "query": [
+            {
+              "key": "organizationCode",
+              "value": "ACME-CORP"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
