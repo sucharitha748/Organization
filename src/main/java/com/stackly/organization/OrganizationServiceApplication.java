@@ -8,5 +8,6 @@ public class OrganizationServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OrganizationServiceApplication.class, args);
+        System.out.println("hello");
     }
 }
